@@ -79,7 +79,7 @@
       };
 
       // Question: What does this code do??
-      $.post("/api/waitlist", tableReservation)
+      $.post("/api/reservations", tableReservation)
         .then(function(data) {
           console.log("add.html", data);
           alert("Adding reservation...");

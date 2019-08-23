@@ -75,15 +75,15 @@
   <script type="text/javascript">
     $.get("/api/reservations/", function(data) {
         console.log(data);
-          // $("#reservations").show();
-          // for (i = 0; i < 6; i++){
-          //   $("#name1").text(data[i].name);
-          // }
-          $("#name1").text(data[0].name);
-          $("#name2").text(data[1].name);
-          $("#name3").text(data[2].name);
-          $("#name4").text(data[3].name);
-          $("#name5").text(data[4].name);
+          $("#reservations").show();
+          for (i = 0; i < 6; i++){
+            $("#reservations").append("<h3><strong>Name: " + data[i].name + "</strong> <span id='name'></span></h3>");
+          }
+          // $("#name1").text(data[0].name);
+          // $("#name2").text(data[1].name);
+          // $("#name3").text(data[2].name);
+          // $("#name4").text(data[3].name);
+          // $("#name5").text(data[4].name);
       });
 
       $.get("/api/waitlist/", function(data) {

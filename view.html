@@ -20,7 +20,8 @@
       <hr>
       <h3>Current Reservations and Waitlist</h3>
       <br>
-      <a href="/add.html"><button class="btn btn-danger btn-lg"><span class="fa fa-credit-card-alt"></span> Make Reservation</button></a>
+      <a href="/add.html"><button class="btn btn-danger btn-lg"><span class="fa fa-credit-card-alt"></span> Make
+          Reservation</button></a>
       <a href="/index.html"><button class="btn btn-light btn-lg"><span class="fa fa-home"></span></button></a>
 
     </div>
@@ -34,7 +35,9 @@
           </div>
           <div class="card-body">
             <div class="text-right">
-              
+              <div id="reservations">
+                <h3><strong>Name:</strong> <span id="name1"></span></h3>
+              </div>
 
             </div>
           </div>
@@ -45,46 +48,35 @@
             <h3><strong>Waitlist</strong></h3>
           </div>
           <div class="card-body">
-            <h2 id="name"></h2>
-            <div id="info">
-              
+            <div id="waitlist">
+              <h3><strong>Name:</strong> <span id="name2"></span></h3>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-<br>
+  <br>
   <footer class="footer">
     <div class="container">
       <p>Control Panel</p>
-      <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a></p>
+      <p><a href="#" id="clear">Clear Table</a> | <a href="/api/reservations">API Table Link</a> | <a href="/api/waitlist">API
+          Wait List</a></p>
     </div>
   </footer>
 
   <script type="text/javascript">
-    $("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
-
-      // Using a RegEx Pattern to remove spaces from searchedCharacter
-      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
-
-      $.get("/api/characters/" + searchedCharacter, function(data) {
+    $.get("/api/reservations/", function(data) {
         console.log(data);
-        if (data) {
-          $("#stats").show();
-          $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
-        }
-        else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
-          $("#stats").hide();
-        }
+          $("#reservations").show();
+          $("#name1").text(data.name);
       });
-    });
+
+      $.get("/api/waitlist/", function(data) {
+        console.log(data);
+          $("#waitlist").show();
+          $("#name2").text(data.name);
+      });
   </script>
 </body>
 

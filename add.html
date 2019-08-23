@@ -18,7 +18,7 @@
       <h3>Make your reservation</h3>
       <hr>
       <a href="/view.html"><button class="btn btn-primary btn-lg"><span class="fa fa-table"></span>View Tables</button></a>
-      <a href="/index.html"><button class="btn btn-light btn-lg"><span class="fa fa-home"></span></button></a>
+      <a href="/"><button class="btn btn-light btn-lg"><span class="fa fa-home"></span></button></a>
     </div>
     <div class="row">
 
@@ -78,12 +78,22 @@
         uniqueID: $("#uniqueID").val().trim()
       };
 
-      // Question: What does this code do??
-      $.post("/api/waitlist", tableReservation)
+      $.get("/api/reservations"), function (data){
+        if (data.length >= 5){
+          console.log("Added to waitlist!")
+          $.post("/api/waitlist", tableReservation)
+          .then(function(data){
+            console.log("add.hmtl", data);
+            alert("Added to waitlist!")
+          })
+        }else{
+          $.post("/api/reservations", tableReservation)
         .then(function(data) {
           console.log("add.html", data);
           alert("Adding reservation...");
         });
+        }
+      }
     });
   </script>
 

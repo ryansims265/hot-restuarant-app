@@ -34,7 +34,7 @@
             <h3><strong>Current Reservations</strong></h3>
           </div>
           <div class="card-body">
-            <div class="text-right">
+            <div class="text-left">
               <div id="reservations">
                 <h3><strong>Name:</strong> <span id="name1"></span></h3>
               </div>
@@ -48,8 +48,10 @@
             <h3><strong>Waitlist</strong></h3>
           </div>
           <div class="card-body">
+              <div class="text-left">
             <div id="waitlist">
               <h3><strong>Name:</strong> <span id="name2"></span></h3>
+            </div>
             </div>
           </div>
         </div>
@@ -69,7 +71,9 @@
     $.get("/api/reservations/", function(data) {
         console.log(data);
           $("#reservations").show();
-          $("#name1").text(data.name);
+          for (i = 0; i < 6; i++){
+            $("#name1").text(data[i].name);
+          }
       });
 
       $.get("/api/waitlist/", function(data) {

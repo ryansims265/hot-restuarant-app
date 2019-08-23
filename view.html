@@ -81,6 +81,26 @@
             $("#waitlist").append("</span> <h3><strong>Name: " + data[i].name + "</strong> <span id='namereserve'></span></h3>");
           }
       });
+      
+    
+
+      $("#clear").on("click", function (event) {
+     $.get("/api/reservations/", function (data) {
+       
+         $.post("/api/waitlist", tableReservation)
+           .then(function (data) {
+             tableReservation = [];
+             alert("Clearing Waitlist!");
+      
+         $.post("/api/reservations", waitList)
+         .then(function (data) {
+           waitList = [];
+           alert("Clearing Reservations")
+         })
+     });
+   });
+      });
+
   </script>
 </body>
 </html>

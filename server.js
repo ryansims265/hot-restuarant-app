@@ -14,46 +14,8 @@ app.use(express.json());
 
 // Star Wars Characters (DATA)
 // =============================================================
-var tableReservation = [
-    {
-        name: "Yoda",
-        phoneNumber: "00000",
-        email: "bobby@gmail.com",
-        uniqueID: 2001
-    },
-    {
-        name: "Yodas",
-        phoneNumber: "7777777",
-        email: "bob@gmail.com",
-        uniqueID: 2002
-    },
-    {
-        name: "Yodaas",
-        phoneNumber: "4444444",
-        email: "21111111",
-        uniqueID: 2003
-    }
-];
-var waitList = [
-    {
-        name: "YodaMom",
-        phoneNumber: "777777",
-        email: "bgeorge@gmail.com",
-        uniqueID: 2006
-    },
-    {
-        name: "YodaDad",
-        phoneNumber: "8888888",
-        email: "mary@gmail.com",
-        uniqueID: 2005
-    },
-    {
-        name: "YodaSon",
-        phoneNumber: "9999999999",
-        email: "ann@gmail.com",
-        uniqueID: 2004
-    }
-];
+var tableReservation = [];
+var waitList = [];
 // Routes
 // =============================================================
 

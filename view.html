@@ -71,17 +71,20 @@
     $.get("/api/reservations/", function(data) {
         console.log(data);
           for (i = 0; i < 6; i++){
-            $("#reservations").append("<h3><strong>Name: " + data[i].name + "</strong> <span id='namereserve'></span></h3>");
+            var count = 1;
+            $("#reservations").append("<span class='label label-primary'>" + count + "</span> <h3><strong>Name: " + data[i].name + "</strong> <span id='namereserve'></span></h3>");
+            count++;
           }
       });
 
       $.get("/api/waitlist/", function(data) {
         console.log(data);
-        for (i = 0; i < 6; i++){
-            $("#waitlist").append("<h3><strong>Name: " + data[i].name + "</strong> <span id='namewait'></span></h3>");
+        for (i = 0; i < 30; i++){
+          var count2 = 1;
+            $("#waitlist").append("<span class='label label-warning'>" + count + "</span> <h3><strong>Name: " + data[i].name + "</strong> <span id='namereserve'></span></h3>");
+            count2++;
           }
       });
   </script>
 </body>
-
 </html>

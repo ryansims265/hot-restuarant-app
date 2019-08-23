@@ -37,6 +37,7 @@
             <div class="text-left">
               <div id="reservations">
                 <h3><strong>Name:</strong> <span id="name1"></span></h3>
+                
               </div>
 
             </div>
@@ -72,7 +73,7 @@
         console.log(data);
           $("#reservations").show();
           for (i = 0; i < 6; i++){
-            $("#name1").text(data[i].name);
+            $("#name1").append(data[i].name);
           }
       });
 

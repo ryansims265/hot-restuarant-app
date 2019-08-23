@@ -37,6 +37,11 @@
             <div class="text-left">
               <div id="reservations">
                 <h3><strong>Name:</strong> <span id="name1"></span></h3>
+                <h3><strong>Name:</strong> <span id="name2"></span></h3>
+                <h3><strong>Name:</strong> <span id="name3"></span></h3>
+                <h3><strong>Name:</strong> <span id="name4"></span></h3>
+                <h3><strong>Name:</strong> <span id="name5"></span></h3>
+                
               </div>
 
             </div>
@@ -50,7 +55,7 @@
           <div class="card-body">
               <div class="text-left">
             <div id="waitlist">
-              <h3><strong>Name:</strong> <span id="name2"></span></h3>
+              <h3><strong>Name:</strong> <span id="name6"></span></h3>
             </div>
             </div>
           </div>
@@ -70,16 +75,21 @@
   <script type="text/javascript">
     $.get("/api/reservations/", function(data) {
         console.log(data);
-          $("#reservations").show();
-          for (i = 0; i < 6; i++){
-            $("#name1").text(data[i].name);
-          }
+          // $("#reservations").show();
+          // for (i = 0; i < 6; i++){
+          //   $("#name1").text(data[i].name);
+          // }
+          ("#name1").text(data[0].name);
+          ("#name2").text(data[1].name);
+          ("#name3").text(data[2].name);
+          ("#name4").text(data[3].name);
+          ("#name5").text(data[4].name);
       });
 
       $.get("/api/waitlist/", function(data) {
         console.log(data);
-          $("#waitlist").show();
-          $("#name2").text(data.name);
+          // $("#waitlist").show();
+          $("#name6").text(data.name);
       });
   </script>
 </body>

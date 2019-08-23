@@ -66,6 +66,10 @@ app.get("/add", function (req, res) {
     res.sendFile(path.join(__dirname, "add.html"));
 });
 
+app.get("/view", function (req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
+});
+
 // Displays all characters
 app.get("/api/reservations", function (req, res) {
     return res.json(tableReservation);
